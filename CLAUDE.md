@@ -30,4 +30,5 @@ When generating designs for the documentation:
 - **Secondary Accent**: Plasma Violet (`#524ae9`)
 - **Tag/Highlight**: Sulfur (`#f5f28e`)
 - **Typography**: Momo Trust Sans for both Display Headings and Body/Controls.
+- **Iconography**: Lucide Icons / Phosphor Icons (clean vector SVG paths or semantic SVG components).
 - **Standard Artboard Dimensions**: `1200 x 675 px` (16:9 ratio, exported at 2x scale).
