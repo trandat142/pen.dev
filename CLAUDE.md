@@ -29,5 +29,5 @@ When generating designs for the documentation:
 - **Primary Accent**: Ember (`#fc5000`)
 - **Secondary Accent**: Plasma Violet (`#524ae9`)
 - **Tag/Highlight**: Sulfur (`#f5f28e`)
-- **Typography**: Space Grotesk / Bold Condensed for Display Headings; DM Sans for Body and Controls.
+- **Typography**: Momo Trust Sans for both Display Headings and Body/Controls.
 - **Standard Artboard Dimensions**: `1200 x 675 px` (16:9 ratio, exported at 2x scale).
