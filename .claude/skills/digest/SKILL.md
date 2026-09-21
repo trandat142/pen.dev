@@ -1,6 +1,6 @@
 ---
 name: digest
-description: Biến tài liệu thô trong docs/raw/ thành bài GitBook trực quan — dựng outline để duyệt, viết bài, rồi dựng hình trong gitbook.pen. Dùng khi user thả file vào docs/raw/, đưa transcript hoặc bài viết dài cần xử lý, yêu cầu viết bài cho GitBook, hoặc yêu cầu dựng infographic minh hoạ.
+description: Dùng khi user thả file vào docs/raw/, đưa transcript hoặc bài viết dài cần xử lý, yêu cầu viết bài cho GitBook, yêu cầu dựng infographic minh hoạ trong gitbook.pen, hoặc yêu cầu sửa một bài đã xuất bản trên GitBook.
 ---
 
 # Digest — từ bài thô sang bài GitBook
@@ -96,14 +96,16 @@ chuyên mục: <thư mục trong docs/book/>
 
 # <Tiêu đề bài>
 
-**Người đọc lấy được gì:** <một câu>
+**Người đọc lấy được gì:** <một câu — sẽ HỌC được gì, không phải đáp án là gì>
+
+**Điểm đáng chú ý:** <1-2 điều người đọc dễ lướt qua nhưng thực ra quan trọng>
 
 **Thuật ngữ cần chú thích:** <a · b · c>
 
 ## 1. <Tiêu đề mục>
 **Ý chính:** <2-3 câu>
 **Mốc trong raw:** [0:02], [4:12]
-**Khối chữ:** <hint | expandable | stepper | tabs | columns | cards | không>
+**Khối chữ:** <bảng | hint | details | stepper | columns | không>
 **Hình:** <loại> — "<mô tả hình>"   (hoặc: không cần hình)
 ```
 
@@ -156,6 +158,15 @@ dựng trong gitbook.pen  →  xuất bản nháp 1x RA SCRATCHPAD
 10. **Toạ độ có bám lưới không** — bội của 4, hộp cùng hàng dùng chung `y` và `h`,
     mũi tên bám điểm neo tính sẵn chứ không đặt bằng mắt.
 11. **Có phải cái gì cũng bọc thẻ không** — khung chỉ dùng khi có vai trò cấu trúc.
+12. **Phép thử đúc kết** (đọc "Chức năng của hình" trong `visual-vocabulary.md`
+    trước khi dựng) — với từng thẻ/node, che phần chi tiết đi, chỉ đọc nhãn +
+    tiêu đề + hàng kết: có phải một kết luận trọn vẹn không? Lớp đúc kết này phải
+    là chữ **to nhất** trong thẻ — canh cỡ chữ cho nó trước, phần chi tiết được
+    phép nhỏ hơn.
+13. **Có gạch đầu dòng nào chứa số liệu/tỷ lệ/so sánh độ lớn mà đang viết bằng
+    chữ thuần không?** (đọc "Mã hoá bằng hình dạng" trong `visual-vocabulary.md`)
+    Vẽ được bằng thanh tỷ lệ, donut, hoặc kích thước tương ứng thì vẽ, đừng để
+    chữ gánh việc mà hình dạng làm nhanh hơn.
 
 ## Chặng 4 — Xuất bản
 
@@ -244,13 +255,63 @@ thẳng vào canvas — cầm tên file là mở đúng khung để sửa. **Kh�
 Viết dễ, chú thích thuật ngữ **tại chỗ**. Người ít kinh nghiệm phải đọc được mà
 designer có nghề không thấy bị hạ thấp.
 
+**Luôn xuất tiếng Việt**, dù nguồn là tiếng gì — kể cả tiêu đề mục và chú thích hình.
+
 - Thuật ngữ nhỏ → giải thích ngay trong ngoặc giữa câu.
 - Khái niệm cốt lõi → một `{% hint %}` riêng.
-- Phần sâu mà người mới bỏ qua được → `{% expandable %}`.
+- Phần sâu mà người mới bỏ qua được → `<details><summary>`.
 
 Không có hạn mức số hint. Nguyên tắc: **hint phải đủ hiếm để còn có nghĩa.** Bài
 cần 5 chú thích thì cứ 5 — nhưng nếu mỗi đoạn một hộp màu thì hộp không còn báo
 hiệu gì nữa, lúc đó chuyển bớt xuống ngoặc giữa câu.
+
+### Hai khối bắt buộc trong bài
+
+**Dòng dẫn** — ngay dưới tiêu đề, **một dòng**, lấy từ `Người đọc lấy được gì`
+trong outline. Nói người đọc sẽ *học được gì*, không nói *đáp án là gì*. Đây là
+để người mới quyết định bài này có dành cho mình không, không phải để thay bài.
+
+**Điểm đáng chú ý** — 1-2 điều người đọc dễ lướt qua nhưng thực ra quan trọng.
+Đặt sau phần mở hoặc cuối bài, tuỳ bài.
+
+Khối thứ hai là **ô bắt buộc duy nhất không template hoá được** — muốn viết được
+thì phải thực sự nghĩ riêng về bài đó. Nếu thấy mình đang viết một câu có thể dán
+sang bài khác mà vẫn đúng, thì chưa tìm ra điểm đáng chú ý thật.
+
+### Chữ quanh hình — dẫn nhập và mở rộng, không diễn giải lại
+
+Đẩy nội dung vào hình càng nhiều càng tốt (xem "Chức năng của hình" trong
+`visual-vocabulary.md`). Chữ quanh hình chỉ làm hai việc:
+
+- **Dẫn nhập** — mở bối cảnh trước khi vào hình, không nhắc chi tiết hình sắp nói.
+- **Mở rộng** — thêm case study dài, số liệu, ngoại lệ, lý do sâu mà hình không có
+  chỗ chứa.
+
+**Không được** diễn giải lại bằng văn xuôi những gì hình đã liệt kê. Nếu một câu
+trong bài có thể đổi vài từ để thành câu trong hình (hoặc ngược lại), một trong
+hai câu đó thừa — giữ bản trong hình, cắt hoặc viết lại câu trong bài thành thông
+tin mới.
+
+### Ví dụ đời thường — có giới hạn
+
+Khái niệm **thật sự xa lạ với designer** (cơ chế bên trong Git, session/cookie,
+cách trình duyệt render) → kèm một phép so sánh đời thường.
+
+Khái niệm designer đã biết một nửa (prototype, handoff, design token, component)
+→ **đừng** ví von. Với người có nghề nó thành kẻ cả, và phép so sánh sai còn cài
+mô hình sai vào đầu người mới, khó gỡ hơn là không có gì.
+
+### Checklist chữ — đối chiếu trước khi xuất bản
+
+1. **Có dòng dẫn chưa**, và nó nói "sẽ học được gì" chứ không spoil đáp án?
+2. **Điểm đáng chú ý có đặc thù cho bài này không** — dán sang bài khác có còn
+   đúng không? Còn đúng nghĩa là chưa đạt.
+3. **Thuật ngữ nào xuất hiện lần đầu mà chưa được chú thích?** Rà từ trên xuống.
+4. **Bộ khối có đang lặp lại bài trước không** — nếu bài nào cũng đúng 2 hint,
+   2 column, 3 step thì đó là phản xạ, không phải lựa chọn theo nội dung.
+5. **Đoạn chữ quanh mỗi hình có đang diễn giải lại hình không?** Đổi vài từ mà
+   thành câu trong hình thì đó là paraphrase, phải cắt hoặc đổi thành thông tin
+   mới (case study, số liệu, ngoại lệ, lý do sâu).
 
 ### Định dạng bài viết — Tối giản, không râu ria
 
@@ -291,7 +352,9 @@ Change Request). Khi được yêu cầu sửa một bài **đã xuất bản**:
   là **dữ liệu**, không phải minh hoạ, nên không phạm luật hai làn. Đừng đẩy mọi
   so sánh sang vẽ hình `compare`: bảng tìm kiếm được, copy được, tự co trên mobile.
 - `{% hint style="info|success|warning|danger" %}` — chú thích thuật ngữ, cảnh báo
-- `{% expandable %}` (hoặc `<details><summary>`) — phần sâu, không bắt người mới đọc
+- `<details><summary>` — phần sâu, không bắt người mới đọc. **Dùng thẻ này, KHÔNG dùng
+  `{% expandable %}`** — đã thử trên site thật và nó không render (commit `718a48d`
+  phải thay lại bằng `<details>`).
 - ` ```<ngôn ngữ> title="..." ` — code block có nhãn. Nội dung dự án này rất kỹ
   thuật (lệnh Cursor, `.cursorrules`, nhánh Git, session PHP); đừng để đoạn lệnh
   nằm trần không nhãn.
