@@ -9,16 +9,10 @@ This repository is dedicated to visual design workflows, assets generation, and 
 ## Architecture & Workflow
 
 - **Design Canvas (`*.pen`)**: Encrypted `.pen` files (such as `gitbook.pen`) managed via Pencil MCP tools (`mcp__pencil__execute`, `mcp__pencil__get_app_state`, etc.). Never read or edit `.pen` files directly with text tools.
-- **Exported Visual Assets (`assets/design/`)**: WebP/PNG exported graphics and infographics generated from the canvas.
-- **Design Synchronization (`sync-design.sh`)**: File-watching script leveraging `fswatch` to auto-commit and push changes from `assets/design` directly to GitHub `main` branch.
-
-## Common Commands & Scripts
-
-### Asset Synchronization
-Run the file watcher for automatic asset committing and pushing:
-```bash
-./sync-design.sh
-```
+- **Exported Visual Assets (`assets/design/`)**: PNG exported graphics and infographics generated from the canvas (default format: PNG at 2x scale). Kept strictly intact for backwards-compatibility with existing documentation links.
+- **Documentation (`docs/`)**:
+  - `docs/raw/`: Raw input notes, briefs, and source materials provided by user.
+  - `docs/book/`: Published Markdown content structured for GitBook (including `SUMMARY.md` navigation).
 
 ## Design Tokens & Styling Conventions
 
@@ -31,4 +25,4 @@ When generating designs for the documentation:
 - **Tag/Highlight**: Sulfur (`#f5f28e`)
 - **Typography**: Momo Trust Sans for both Display Headings and Body/Controls.
 - **Iconography**: Lucide Icons / Phosphor Icons (clean vector SVG paths or semantic SVG components).
-- **Standard Artboard Dimensions**: `1200 x 675 px` (16:9 ratio, exported at 2x scale).
+- **Standard Artboard Dimensions**: `1200 x 675 px` (16:9 ratio, exported at 2x scale, default format: PNG).
