@@ -1,19 +1,8 @@
 ---
 description: Khám phá quy trình làm việc tự chủ, bộ công cụ tinh gọn và tư duy vượt bẫy AI "One-Shot" của Design Engineer tại DuckDuckGo.
-icon: duck
 ---
 
 # Quy trình Làm việc của Design Engineer tại DuckDuckGo
-
-> **Nhân vật chia sẻ**: Carl — Design Engineer tại DuckDuckGo  
-> **Kênh phỏng vấn**: Sneak Peek (Host: Jay)  
-> **Chủ đề**: Bộ công cụ tinh gọn, văn hóa tự chủ async-first, chiến lược "Hack Phase" và phương pháp làm chủ AI bằng kiến thức nền tảng.
-
-{% embed url="https://www.youtube.com/watch?v=yfh4MWB78jY" %}
-Video phỏng vấn gốc: Design Engineer at DuckDuckGo Shows His Workflow (and AI Tools He uses)
-{% endembed %}
-
----
 
 ## 1. Bộ công cụ Tinh gọn: "Figma làm nháp, Cursor làm thật"
 
