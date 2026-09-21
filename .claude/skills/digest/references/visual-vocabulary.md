@@ -51,13 +51,13 @@ một hệ thống thay vì một tập hợp rời rạc.
 
 Chữ: Momo Trust Sans. Icon: Lucide.
 
-## Khi nào KHÔNG vẽ
+## Khi hình thực sự thêm giá trị
 
-Chỉ vẽ khi hình làm được việc mà ba câu chữ không làm được — tức khi ý có quan hệ
-**không gian**: song song, vòng, phân nhánh, vị trí trên màn hình.
+Hình phát huy mạnh nhất khi ý có quan hệ **không gian**: song song, vòng, phân
+nhánh, vị trí trên màn hình. Đó là thứ chữ diễn đạt kém nhất.
 
-Mục chỉ liệt kê vài gạch đầu dòng thì để nguyên gạch đầu dòng. Nhanh hơn, đọc dễ
-hơn, tìm kiếm được, và sửa không tốn gì.
+Mục chỉ là vài gạch đầu dòng rời rạc thì hình thêm được ít hơn — nhưng **đây là
+gợi ý, không phải luật**. User quyết mật độ hình, không phải tôi.
 
 ## Tên khung trong canvas
 

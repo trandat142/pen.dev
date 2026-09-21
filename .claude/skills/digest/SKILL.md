@@ -22,10 +22,33 @@ chèn ảnh vào bài + cập nhật INDEX.md
 
 ## Chặng 1 — Dọn & đọc
 
-Transcript YouTube tự động thường lặp mỗi câu 2-3 lần (rác caption). Dọn trước khi
-đọc, đừng đọc bản rác. Giữ mốc thời gian `[m:ss]` để trích dẫn trong outline.
+**Nhận dạng loại raw trước.** Không phải file nào cũng là transcript.
 
-Ghi bản sạch ra scratchpad, **không** ghi đè file trong `docs/raw/`.
+| Loại | Dấu hiệu | Xử lý |
+|---|---|---|
+| Transcript tự động | Có `[m:ss]`, câu lặp chồng lấn | Dedupe (xem dưới) rồi đọc |
+| Bài viết / blog | Có heading, đoạn văn mạch lạc | Đọc thẳng |
+| Ghi chú / brief | Ngắn, gạch đầu dòng | Đọc thẳng |
+
+### Dedupe transcript — đừng làm ẩu
+
+Caption YouTube lặp theo **cửa sổ trượt**, chồng lấn *giữa chừng câu*, không phải
+lặp nguyên dòng:
+
+```
+So, what was your old workflow like? So, what was your old workflow like? Like
+before using AI tools, what was Like before using AI tools, what was Like before
+using AI tools, what was your traditional workflow like?
+```
+
+Dedupe theo dòng **sẽ hỏng**. Phải khử chồng lấn ở mức cụm từ. Viết script cho
+từng file (mẫu lặp mỗi nguồn mỗi khác), chạy, rồi **đọc lại vài đoạn ngẫu nhiên
+của bản sạch để xác nhận không mất chữ** trước khi tin nó.
+
+Giữ mốc `[m:ss]` để trích dẫn trong outline.
+
+Ghi bản sạch ra scratchpad, **không** ghi đè file trong `docs/raw/`. Bản sạch phải
+nhỏ hơn hẳn bản gốc — đọc bản sạch, đừng nạp bản gốc vào context.
 
 ## Chặng 2 — Outline (CỔNG 1)
 
@@ -52,8 +75,12 @@ trạng thái: chờ duyệt
 **Hình:** <loại> — "<mô tả hình>"   (hoặc: không cần hình)
 ```
 
-**DỪNG LẠI.** Không viết bài khi `trạng thái` chưa là `đã duyệt`.
-User sửa file trực tiếp — đổi thứ tự mục, đổi loại hình, gạch mục thừa.
+**DỪNG LẠI.** Không viết bài khi user chưa duyệt.
+
+User duyệt kiểu nào cũng được — gật trong chat, hoặc sửa thẳng vào file (đổi thứ
+tự mục, đổi loại hình, gạch mục thừa). **Đừng bắt user tự sửa dòng YAML.** Khi họ
+gật, *tôi* đổi `trạng thái` thành `đã duyệt` — trường đó là bản ghi cho phiên sau,
+không phải nút bấm cho user vặn.
 
 ## Chặng 3 — Viết bài (CỔNG 2)
 
@@ -76,12 +103,18 @@ mới dựng hình.
 Vòng lặp cho mỗi hình:
 
 ```
-dựng trong gitbook.pen  →  xuất PNG  →  Read chính file PNG đó và NHÌN
-                                     →  đối chiếu checklist  →  sửa  →  xuất lại
+dựng trong gitbook.pen  →  xuất bản nháp 1x RA SCRATCHPAD
+                        →  Read file PNG đó và NHÌN
+                        →  đối chiếu checklist  →  sửa  →  xuất lại
+                        →  sạch rồi mới xuất 2x vào assets/design/
 ```
 
 Đọc cấu trúc bằng `get_app_state` **không đủ** — lỗi tràn chữ và sập layout chỉ
 lộ ra khi nhìn ảnh thật. Bắt buộc phải `Read` file PNG.
+
+Soi bản nháp ở **1x trong scratchpad**, không phải 2x: ảnh 2x rộng 2400px, đọc
+vài vòng lặp cho vài hình là rất tốn. 1x vẫn đủ thấy tràn chữ, sập khung, lệch
+hàng. Chỉ bản đã sạch mới xuất 2x vào `assets/design/`.
 
 Giữ `placeholder: true` trên khung suốt lúc đang làm, bỏ ngay khi xong.
 
@@ -94,8 +127,9 @@ Giữ `placeholder: true` trên khung suốt lúc đang làm, bỏ ngay khi xong
 3. **Nội dung bị cắt** — frame `clip: true` nuốt luôn phần tràn, không lòi ra cho
    thấy. Phóng to frame cho vừa nội dung.
 4. **Chữ vô hình** — text không có `fill` thì không hiện. Emoji cũng cần `fill`.
-5. **Tương phản** — Obsidian trên Pumice/Limestone thì ổn; Sulfur trên Limestone
-   thì không đọc được.
+5. **Tương phản** — Obsidian trên Pumice/Limestone đạt tương phản cao, dùng thoải
+   mái. **Sulfur là màu NỀN cho chữ Obsidian, không bao giờ là màu chữ** —
+   Sulfur trên Limestone chỉ đạt ~1.1:1, vô hình. Obsidian trên Sulfur đạt ~15.8:1.
 6. **Căn lề và khoảng cách** — có đều không, có lệch hàng không.
 7. **Một Ember duy nhất** trong hình.
 8. **Đúng loại hình** như outline đã chốt (đừng vẽ `flow` khi outline ghi `loop`).
@@ -154,9 +188,11 @@ designer có nghề không thấy bị hạ thấp.
 - `{% embed url="..." %}` — nhúng video nguồn, đừng để link trần
 - frontmatter: `description:`, `icon:`, `cover:`
 
-### Kỷ luật
+### Mật độ hình — user quyết, không phải tôi
 
-- **Không phải mục nào cũng cần hình.** Chỉ vẽ khi ý có quan hệ *không gian* —
-  song song, vòng lặp, phân nhánh. Mục chỉ liệt kê thì để gạch đầu dòng.
-- Bài CNN hiện tại có 6/6 mục đều có hình. Tỷ lệ đó quá cao; khi mọi thứ đều được
-  minh hoạ thì không gì nổi bật.
+Trong outline, **đề xuất** hình cho mục nào ý có quan hệ *không gian* (song song,
+vòng lặp, phân nhánh, vị trí trên màn hình) và ghi rõ mục nào tôi thấy không cần.
+
+Nhưng đó chỉ là đề xuất. **User là UI/UX designer và cả dự án này xoay quanh việc
+giải thích bằng hình** — họ muốn 100% số mục có hình thì đó là lựa chọn của họ,
+không phải lỗi cần sửa. Đừng viện "kỷ luật thị giác" để ép giảm số hình.
