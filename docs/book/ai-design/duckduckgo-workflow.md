@@ -98,7 +98,9 @@ Dành toàn bộ 2 tuần 6 ngày tiếp theo để làm bài toán phân tích 
 
 Để duy trì góc nhìn sắc bén về thiết kế sản phẩm, chuyển động và trí tuệ nhân tạo, Carl duy trì việc đọc và tuyển chọn hàng trăm bài viết mỗi tuần. Thay vì ngồi lọc tay 3-4 tiếng mỗi Chủ nhật, anh đã xây dựng một hệ thống tự động hóa thông minh.
 
-{% expandable title="Xem chi tiết Kiến trúc Kịch bản Tự động hóa của Carl" %}
+<details>
+<summary>Xem chi tiết Kiến trúc Kịch bản Tự động hóa của Carl</summary>
+
 Hệ thống vận hành ngầm trên máy Mac thông qua một daemon `launchd` (chạy định kỳ hàng tuần):
 1. **Thu thập nguồn tin**: Kịch bản Python tự động cào dữ liệu từ danh sách RSS feed, newsletter và các trang thiết kế uy tín.
 2. **Lọc từ khóa thông minh**: Bóc tách nội dung thô, lọc bỏ rác quảng cáo và phân loại bài viết theo chuyên mục (Branding, Product Design, AI, Motion, Nerd Alerts).
@@ -107,7 +109,7 @@ Hệ thống vận hành ngầm trên máy Mac thông qua một daemon `launchd`
 4. **Xuất bản đa định dạng**: Tự động sinh ra file Markdown và Rich Text sẵn sàng để đăng tải.
 
 **Nguyên tắc Human-in-the-loop**: Dù script có thể tự động publish lên web cá nhân, Carl luôn giữ bước duyệt cuối cùng bằng tay vào sáng thứ Hai để đảm bảo từng đường link chia sẻ đều đạt chuẩn chất lượng cao nhất.
-{% endexpandable %}
+</details>
 
 ---
 
